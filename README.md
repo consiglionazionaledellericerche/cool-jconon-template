@@ -11,9 +11,16 @@ Per il logo basta creare il [file](src/main/resources/META-INF/img/logo.png)
 
 Per cambiare le etichette della pagina iniziale fare riferimento al [file](src/main/resources/i18n/home_it.properties)   
 
+## Requisiti
+
+Per l'avvio in locale occorre una istanza di [Alfresco](http://www.alfresco.com) attiva sulla porta 9080, la versione minima è la 5.0.1 Community.  
+
 ## Avvio locale
-```
+
+```bash
+git clone https://github.com/consiglionazionaledellericerche/cool-jconon-template.git
+cd cool-jconon-template
 mvn clean spring-boot:run -Drepository.base.url=http://localhost:9080/alfresco/
 ```
 
-<http://localhost:8080/>
+L'applicazionre sarà attiva alla seguente URL: <http://localhost:8080/jconon>
