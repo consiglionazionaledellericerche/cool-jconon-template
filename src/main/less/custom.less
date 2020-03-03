@@ -1,0 +1,27 @@
+@default-background-color: lightseagreen;
+@default-color: #59e7df;
+@default-border-color: #05615c;
+
+.header, .btn-primary {
+  background: @default-background-color;
+}
+
+.nav-list > .active > a, .nav-list > .active > a:hover, .nav-list > .active > a:focus,
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .btn-primary.disabled, .btn-primary[disabled],
+.btn-group.open .btn-primary.dropdown-toggle{
+  background-color: @default-background-color;
+}
+
+.nav-list > li > a {
+  color: @default-background-color;
+}
+
+.jumbotron {
+    color: white!important;
+}
+
+.alert-info {
+    color: @default-color!important;
+    background-color: @default-background-color!important;
+    border-color: @default-border-color!important;
+}

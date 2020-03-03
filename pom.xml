@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (C) 2019  Consiglio Nazionale delle Ricerche
+  ~
+  ~     This program is free software: you can redistribute it and/or modify
+  ~     it under the terms of the GNU Affero General Public License as
+  ~     published by the Free Software Foundation, either version 3 of the
+  ~     License, or (at your option) any later version.
+  ~
+  ~     This program is distributed in the hope that it will be useful,
+  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~     GNU Affero General Public License for more details.
+  ~
+  ~     You should have received a copy of the GNU Affero General Public License
+  ~     along with this program.  If not, see <https://www.gnu.org/licenses />.
+  -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>it.cnr.si.cool.jconon</groupId>
+        <artifactId>cool-jconon-parent</artifactId>
+        <version>4.3.13</version>
+    </parent>
+
+    <artifactId>cool-jconon-template</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>Concorsi On-Line Template</name>
+
+    <properties>
+        <cool.mode>development</cool.mode>
+        <start-class>it.cnr.si.cool.jconon.CoolJcononApplication</start-class>
+        <hazelcast.version>3.7.2</hazelcast.version>
+    </properties>
+
+    <packaging>war</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>it.cnr.si.cool.jconon</groupId>
+            <artifactId>cool-jconon-webapp-resources</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.hazelcast</groupId>
+            <artifactId>hazelcast-spring</artifactId>
+            <version>${hazelcast.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.hazelcast</groupId>
+            <artifactId>hazelcast</artifactId>
+            <version>${hazelcast.version}</version>
+        </dependency>
+    </dependencies>
+
+    <profiles>
+
+        <profile>
+            <id>prod</id>
+            <properties>
+                <cool.mode>PRODUCTION</cool.mode>
+                <common.javascript.path>${project.build.directory}/javascript-exploded/META-INF/js/
+                </common.javascript.path>
+                <common.cnr.javascript.path>${project.build.directory}/javascript-exploded/META-INF/js/
+                </common.cnr.javascript.path>
+            </properties>
+            <build>
+                <resources>
+                    <resource>
+                        <filtering>true</filtering>
+                        <directory>src/main/resources</directory>
+                        <excludes>
+                            <exclude>**/js/ws/**/*.js</exclude>
+                        </excludes>
+                        <includes>
+                            <include>**/logback.xml</include>
+                        </includes>
+                    </resource>
+                    <resource>
+                        <filtering>false</filtering>
+                        <directory>src/main/resources</directory>
+                        <excludes>
+                            <exclude>**/js/ws/**/*.js</exclude>
+                            <exclude>**/logback.xml</exclude>
+                        </excludes>
+                    </resource>
+                </resources>
+                <plugins>
+                    <plugin>
+                        <groupId>com.github.bringking</groupId>
+                        <artifactId>requirejs-maven-plugin</artifactId>
+                        <version>2.0.4</version>
+                        <executions>
+                            <execution>
+                                <phase>compile</phase>
+                                <goals>
+                                    <goal>optimize</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <configFile>
+                                ${basedir}/src/main/config/buildconfig.js
+                            </configFile>
+                            <filterConfig>
+                                true
+                            </filterConfig>
+                            <skip>
+                                false
+                            </skip>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>net.alchim31.maven</groupId>
+                        <artifactId>yuicompressor-maven-plugin</artifactId>
+                        <configuration>
+                            <nocompress>false</nocompress>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-dependency-plugin</artifactId>
+                        <version>2.10</version>
+                        <executions>
+                            <execution>
+                                <id>unpack</id>
+                                <phase>process-resources</phase>
+                                <goals>
+                                    <goal>unpack</goal>
+                                </goals>
+                                <configuration>
+                                    <artifactItems>
+                                        <artifactItem>
+                                            <groupId>it.cnr.si.cool.jconon</groupId>
+                                            <artifactId>cool-jconon-webapp-resources</artifactId>
+                                            <version>${project.parent.version}</version>
+                                            <outputDirectory>${project.build.directory}/javascript-exploded
+                                            </outputDirectory>
+                                            <includes>**/*.js</includes>
+                                        </artifactItem>
+                                        <artifactItem>
+                                            <groupId>it.cnr.si.cool</groupId>
+                                            <artifactId>cool-common-web</artifactId>
+                                            <version>${cool.shared.version}</version>
+                                            <outputDirectory>${project.build.directory}/javascript-exploded
+                                            </outputDirectory>
+                                            <includes>**/*.js</includes>
+                                            <excludes>**/remote/**,**/surf/**</excludes>
+                                        </artifactItem>
+                                    </artifactItems>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+    <build>
+        <finalName>selezioni-template</finalName>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>repackage</goal>
+                            </goals>
+                            <configuration>
+                                <mainClass>${start-class}</mainClass>
+                            </configuration>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <mainClass>${start-class}</mainClass>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <configuration>
+                        <failOnMissingWebXml>false</failOnMissingWebXml>
+                    </configuration>
+                </plugin>
+            </plugins>
+
+        </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring-boot.version}</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.2.3</version>
+                <configuration>
+                    <warName>selezioni-template</warName>
+                    <!-- exclude direct copy of resources from src when using yuicompressor, see parent POM configuration -->
+                    <warSourceExcludes>**/js/ws/**/*.js,**/js/cnr/**/*.js,**/js/thirdparty/**/*.js,**/*.css
+                    </warSourceExcludes>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                        </manifest>
+                        <manifestEntries>
+                            <Dependencies>org.dom4j,javax.mail.api</Dependencies>      
+                            <Specification-Title>${project.name}</Specification-Title>
+                            <Specification-Version>${project.version}</Specification-Version>
+                            <Implementation-Version>${project.version}</Implementation-Version>
+                            <mode>${cool.mode}</mode>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.lesscss</groupId>
+                <artifactId>lesscss-maven-plugin</artifactId>
+                <version>1.7.0.1.1</version>
+                <configuration>
+                    <includes>
+                        <include>cool/cool.less</include>
+                        <include>style.less</include>
+                        <include>custom.less</include>
+                    </includes>
+                    <outputDirectory>${project.build.directory}/classes/META-INF/css</outputDirectory>
+                    <nodeExecutable>${node.path}</nodeExecutable>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>less-compile</id>
+                        <phase>process-classes</phase>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <scm>
+        <connection>scm:git:git@github.com:consiglionazionaledellericerche/cool-jconon-template.git</connection>
+        <developerConnection>scm:git:git@github.com:consiglionazionaledellericerche/cool-jconon-template.git</developerConnection>
+        <url>https://github.com/consiglionazionaledellericerche/cool-jconon-template</url>
+        <tag>HEAD</tag>
+    </scm>
+
+    <licenses>
+        <license>
+            <name>GNU AFFERO GENERAL PUBLIC LICENSE</name>
+            <url>https://www.gnu.org/licenses/agpl-3.0.html</url>
+            <comments>
+                Copyright (C) 2019 Consiglio Nazionale delle Ricerche
+
+                This program is free software: you can redistribute it and/or modify
+                it under the terms of the GNU Affero General Public License as
+                published by the Free Software Foundation, either version 3 of the
+                License, or (at your option) any later version.
+
+                This program is distributed in the hope that it will be useful,
+                but WITHOUT ANY WARRANTY; without even the implied warranty of
+                MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+                GNU Affero General Public License for more details.
+
+                You should have received a copy of the GNU Affero General Public License
+                along with this program.  If not, see https://www.gnu.org/licenses/
+            </comments>
+        </license>
+    </licenses>
+    <developers>
+        <developer>
+            <id>marco.spasiano</id>
+            <name>Marco Spasiano</name>
+            <email>marco.spasiano at cnr.it</email>
+            <roles>
+                <role>Project lead</role>
+            </roles>
+        </developer>
+    </developers>
+
+</project>
