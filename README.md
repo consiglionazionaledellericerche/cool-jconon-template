@@ -13,7 +13,7 @@ Per cambiare le etichette della pagina iniziale fare riferimento al [file](src/m
 
 ## Requisiti
 
-Per l'avvio in locale occorre una istanza di [Alfresco](http://www.alfresco.com) attiva sulla porta 9080, la versione minima è la 5.0.1 Community.  
+Per l'avvio in locale occorre una istanza di [Alfresco Community Edition](https://www.alfresco.com/thank-you/thank-you-downloading-alfresco-community-edition) attiva sulla porta 9080, la versione minima è la 5.0.1 Community.  
 
 ## Avvio locale
 
