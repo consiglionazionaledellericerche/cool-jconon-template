@@ -13,7 +13,7 @@ Per cambiare le etichette della pagina iniziale fare riferimento al [file](src/m
 
 ## Requisiti
 
-Per l'avvio in locale occorre una istanza di [Alfresco](http://www.alfresco.com) attiva sulla porta 9080, la versione minima è la 5.0.1 Community.  
+Per l'avvio in locale occorre una istanza di [Alfresco Community Edition](https://www.alfresco.com/thank-you/thank-you-downloading-alfresco-community-edition) attiva sulla porta 9080, la versione minima è la 5.0.1 Community.  
 
 Successivamente applicare i seguenti amps:
 - https://repo.maven.apache.org/maven2/it/cnr/si/alfresco/groups-extension/2.22/groups-extension-2.22.amp
@@ -38,3 +38,4 @@ java -jar target/selezioni-template.war --user.admin.password=admin --server.ser
 ```
 
 L'applicazionre sarà attiva alla seguente URL: <http://localhost:8080>
+
