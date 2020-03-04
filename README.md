@@ -15,12 +15,26 @@ Per cambiare le etichette della pagina iniziale fare riferimento al [file](src/m
 
 Per l'avvio in locale occorre una istanza di [Alfresco](http://www.alfresco.com) attiva sulla porta 9080, la versione minima è la 5.0.1 Community.  
 
+Successivamente applicare i seguenti amps:
+- https://repo.maven.apache.org/maven2/it/cnr/si/alfresco/groups-extension/2.22/groups-extension-2.22.amp
+- https://repo.maven.apache.org/maven2/it/cnr/si/alfresco/zip-content/2.22/zip-content-2.22.amp
+
+
 ## Avvio locale
 
 ```bash
 git clone https://github.com/consiglionazionaledellericerche/cool-jconon-template.git
 cd cool-jconon-template
-mvn clean spring-boot:run -Drepository.base.url=http://localhost:9080/alfresco/
+mvn clean spring-boot:run -Pprod -Dspring.profiles.active=prod -Dserver.servlet.context-path=/ -Duser.admin.password=admin -Drepository.base.url=http://localhost:9080/alfresco/
 ```
 
-L'applicazionre sarà attiva alla seguente URL: <http://localhost:8080/jconon>
+## Compilazione e Avvio
+
+```bash
+git clone https://github.com/consiglionazionaledellericerche/cool-jconon-template.git
+cd cool-jconon-template
+mvn clean install -Pprod
+java -jar target/selezioni-template.war --user.admin.password=admin --server.servlet.context-path=/ --repository.base.url=http://localhost:9080/alfresco/ --spring.profiles.active=prod
+```
+
+L'applicazionre sarà attiva alla seguente URL: <http://localhost:8080>

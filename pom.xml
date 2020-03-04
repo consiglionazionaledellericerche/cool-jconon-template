@@ -89,30 +89,6 @@
                 </resources>
                 <plugins>
                     <plugin>
-                        <groupId>com.github.bringking</groupId>
-                        <artifactId>requirejs-maven-plugin</artifactId>
-                        <version>2.0.4</version>
-                        <executions>
-                            <execution>
-                                <phase>compile</phase>
-                                <goals>
-                                    <goal>optimize</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                        <configuration>
-                            <configFile>
-                                ${basedir}/src/main/config/buildconfig.js
-                            </configFile>
-                            <filterConfig>
-                                true
-                            </filterConfig>
-                            <skip>
-                                false
-                            </skip>
-                        </configuration>
-                    </plugin>
-                    <plugin>
                         <groupId>net.alchim31.maven</groupId>
                         <artifactId>yuicompressor-maven-plugin</artifactId>
                         <configuration>
