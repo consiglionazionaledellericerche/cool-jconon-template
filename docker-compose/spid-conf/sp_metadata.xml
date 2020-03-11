@@ -20,13 +20,13 @@
                 
         <md:SingleLogoutService 
             Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"
-            Location="http://localhost/rest/security/logout" />
+            Location="http://localhost:8080/rest/security/logout" />
 
         <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat> 
 
         <md:AssertionConsumerService  
             Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"  
-            Location="http://localhost/spid/send-response"  
+            Location="http://localhost:8080/spid/send-response"  
             index="0"  
             isDefault="true" /> 
 
