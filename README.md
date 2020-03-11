@@ -22,21 +22,25 @@ Successivamente applicare i seguenti amps:
 
 **Per una corretta inizializzazione delle risorse installare Alfresco localizzato in Inglese**
 
+### Docker Alfresco
+In alternativa si può rendere disponibile Alfresco tramite [docker-compose](docker-compose/docker-compose.yml)   
+
+
+## Compilazione e Primo Avvio
+
+```bash
+git clone https://github.com/consiglionazionaledellericerche/cool-jconon-template.git
+cd cool-jconon-template
+mvn clean install -Pprod
+java -jar target/selezioni-template.war --user.admin.password=admin --server.servlet.context-path=/ --repository.base.url=http://localhost:9080/alfresco/ --spring.profiles.active=prod --spid.enable=true --spid.issuer.entityid=https://miauri.it --spid.destination=http://localhost/spid/send-response
+```
+
 ## Avvio locale
 
 ```bash
 git clone https://github.com/consiglionazionaledellericerche/cool-jconon-template.git
 cd cool-jconon-template
 mvn clean spring-boot:run -Pprod -Dspring.profiles.active=prod -Dserver.servlet.context-path=/ -Duser.admin.password=admin -Drepository.base.url=http://localhost:9080/alfresco/
-```
-
-## Compilazione e Avvio
-
-```bash
-git clone https://github.com/consiglionazionaledellericerche/cool-jconon-template.git
-cd cool-jconon-template
-mvn clean install -Pprod
-java -jar target/selezioni-template.war --user.admin.password=admin --server.servlet.context-path=/ --repository.base.url=http://localhost:9080/alfresco/ --spring.profiles.active=prod
 ```
 
 L'applicazionre sarà attiva alla seguente URL: <http://localhost:8080>
