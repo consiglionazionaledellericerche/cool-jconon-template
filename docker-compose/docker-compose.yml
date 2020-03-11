@@ -75,7 +75,6 @@ services:
     depends_on:
       - alfresco
       - solr4
-      - jconon
     labels:
       SERVICE_NAME: nginx
     read_only: true
