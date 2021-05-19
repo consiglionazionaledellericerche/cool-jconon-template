@@ -31,7 +31,12 @@ docker-compose up -d
 ```
 
 ## Compilazione e Primo Avvio
+### Prerequisiti
+- Installazione di Apache Maven versione 3
+- Git
+- Java 8
 
+### Comandi
 ```bash
 git clone https://github.com/consiglionazionaledellericerche/cool-jconon-template.git
 cd cool-jconon-template
@@ -40,7 +45,12 @@ java -jar target/selezioni-template.war --user.admin.password=admin --server.ser
 ```
 
 ## Avvio locale
+### Prerequisiti
+- Installazione di Apache Maven versione 3
+- Git
+- Java 8
 
+### Comandi
 ```bash
 git clone https://github.com/consiglionazionaledellericerche/cool-jconon-template.git
 cd cool-jconon-template
