@@ -259,5 +259,10 @@
             </roles>
         </developer>
     </developers>
-
+    <repositories>
+        <repository>
+            <id>jaspersoft-repo</id>
+            <url>https://jaspersoft.jfrog.io/jaspersoft/jaspersoft-repo</url>
+        </repository>
+    </repositories>
 </project>
