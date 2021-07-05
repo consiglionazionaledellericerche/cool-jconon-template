@@ -13,7 +13,7 @@ Per cambiare le etichette della pagina iniziale fare riferimento al [file](src/m
 
 ## Personalizzazione nuova tipologia di bando
 
-Per una nuov tipologia di bando fare riferimento al [file](src/main/resources/remote/Data Dictionary/Models/jconon_nuovo_ente_model.xml)   
+Per una nuova tipologia di bando fare riferimento al [file](src/main/resources/remote/Data%20Dictionary/Models/jconon_nuovo_ente_model.xml)   
 
 ## Requisiti
 
