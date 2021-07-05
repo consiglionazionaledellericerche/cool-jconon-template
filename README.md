@@ -11,6 +11,10 @@ Per il logo basta creare il [file](src/main/resources/META-INF/img/logo.png)
 
 Per cambiare le etichette della pagina iniziale fare riferimento al [file](src/main/resources/i18n/home_it.properties)   
 
+## Personalizzazione nuova tipologia di bando
+
+Per una nuov tipologia di bando fare riferimento al [file](src/main/resources/remote/Data Dictionary/Models/jconon_nuovo_ente_model.xml)   
+
 ## Requisiti
 
 Per l'avvio in locale occorre una istanza di [Alfresco Community Edition](https://www.alfresco.com/thank-you/thank-you-downloading-alfresco-community-edition) attiva sulla porta 9080, la versione minima è la 5.0.1 Community.  
