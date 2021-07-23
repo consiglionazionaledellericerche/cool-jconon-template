@@ -13,7 +13,7 @@ Per cambiare le etichette della pagina iniziale fare riferimento al [file](src/m
 
 ## Personalizzazione nuova tipologia di bando
 
-Per una nuova tipologia di bando fare riferimento al [file](src/main/resources/remote/Data%20Dictionary/Models/jconon_nuovo_ente_model.xml)   
+Per una nuova tipologia di bando fare riferimento al [file](src/main/resources/remote-single-model/Data%20Dictionary/Models/jconon_nuovo_ente_model.xml)   
 
 ## Requisiti
 
@@ -45,7 +45,7 @@ docker-compose up -d
 git clone https://github.com/consiglionazionaledellericerche/cool-jconon-template.git
 cd cool-jconon-template
 mvn clean install -Pprod
-java -jar target/selezioni-template.war --user.admin.password=admin --server.servlet.context-path=/ --repository.base.url=http://localhost:9080/alfresco/ --spring.profiles.active=dev --spid.enable=true --spid.issuer.entityid=https://miauri.it --spid.destination=http://localhost:8080/spid/send-response
+java -jar target/selezioni-template.war --rrd.path=remote-shared,remote-single-model --user.admin.password=admin --server.servlet.context-path=/ --repository.base.url=http://localhost:9080/alfresco/ --spring.profiles.active=dev --spid.enable=true --spid.issuer.entityid=https://miauri.it --spid.destination=http://localhost:8080/spid/send-response
 ```
 
 ## Avvio locale
