@@ -13,7 +13,7 @@ services:
       LC_ALL: en_US.UTF-8
     volumes:
       - ./alfresco-global.properties:/usr/local/tomcat/shared/classes/alfresco-global.properties
-      - ./contentstore:/usr/local/tomcat/alf_data
+      - ./alf_data:/usr/local/tomcat/alf_data
 
     depends_on:
       - alfresco-community-erecruitment-postgres    
