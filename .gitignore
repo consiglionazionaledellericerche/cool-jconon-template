@@ -1,2 +1,6 @@
 /cool-jconon-template.iml
 /.idea/
+/target/
+/logs/
+/docker-compose/pgdata/
+/docker-compose/alf_data/
