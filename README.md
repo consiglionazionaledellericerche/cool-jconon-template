@@ -15,6 +15,10 @@ Per cambiare le etichette della pagina iniziale fare riferimento al [file](src/m
 
 Per una nuova tipologia di bando fare riferimento al [file](src/main/resources/remote-single-model/Data%20Dictionary/Models/jconon_nuovo_ente_model.xml)   
 
+## Personalizzazione profili del bando
+
+Per personalizzare i profili legati al bando al [file](src/main/resources/remote-single-model/Data%20Dictionary/Models/jconon_call_constraint_elenco_profilo_livello.xml)
+
 ## Requisiti
 
 Per l'avvio in locale occorre una istanza di [Alfresco Community Edition](https://www.alfresco.com/thank-you/thank-you-downloading-alfresco-community-edition) attiva sulla porta 9080, la versione minima è la 5.0.1 Community.  
