@@ -49,7 +49,7 @@ docker-compose up -d
 git clone https://github.com/consiglionazionaledellericerche/cool-jconon-template.git
 cd cool-jconon-template
 mvn clean install -Pprod
-java -jar target/selezioni-template.war --rrd.path=remote-shared,remote-single-model --user.admin.password=admin --server.servlet.context-path=/ --repository.base.url=http://localhost:9080/alfresco/ --spring.profiles.active=dev --spid.enable=true --spid.issuer.entityid=https://miauri.it --spid.destination=http://localhost:8080/spid/send-response
+java -jar target/selezioni-template.war --rrd.path=remote-shared,remote-single-model --oil.url=http://localhost:9081/rest --user.admin.password=admin --server.servlet.context-path=/ --repository.base.url=http://localhost:9080/alfresco/ --spring.profiles.active=dev --spid.enable=true --spid.issuer.entityid=https://miauri.it --spid.destination=http://localhost:8080/spid/send-response
 ```
 
 ## Avvio locale

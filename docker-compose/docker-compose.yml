@@ -60,6 +60,28 @@ services:
         labels:
           - SERVICE_NAME=spid-testenv2
 
+  helpdesk:
+    image: consiglionazionalericerche/oil:latest
+    ports:
+      - 9081:8080
+    links:
+      - pgoil:pgoil
+    volumes:
+      - ./standalone-full.xml:/opt/jboss/wildfly/standalone/configuration/standalone-full.xml
+
+  pgoil:
+    image: postgres:9.2
+    environment:
+      - POSTGRES_PASSWORD=helpdeskpw
+      - POSTGRES_USER=helpdesk
+      - POSTGRES_DB=helpdeskdb
+    command: postgres -c max_connections=300 -c log_min_messages=LOG
+    volumes:
+      - ./pgdata-helpdesk:/var/lib/postgresql/data/
+      - ./initdb-helpdesk:/docker-entrypoint-initdb.d/      
+    expose:
+      - "5432"
+
   nginx:
     image: nginx:1.13-alpine
     ports:
