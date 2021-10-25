@@ -27,6 +27,7 @@ Successivamente applicare i seguenti amps:
 - https://repo.maven.apache.org/maven2/it/cnr/si/alfresco/groups-extension/2.22/groups-extension-2.22.amp
 - https://repo.maven.apache.org/maven2/it/cnr/si/alfresco/zip-content/2.22/zip-content-2.22.amp
 - https://repo.maven.apache.org/maven2/it/cnr/si/alfresco/cnr-extension-content-model/2.22/cnr-extension-content-model-2.22.amp
+- https://repo.maven.apache.org/maven2/it/cnr/si/alfresco/java-script-extension/2.23/java-script-extension-2.23.amp
 
 **Per una corretta inizializzazione delle risorse installare Alfresco localizzato in Inglese**
 
