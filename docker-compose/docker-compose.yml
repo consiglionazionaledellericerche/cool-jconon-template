@@ -2,7 +2,7 @@ version: '3.4'
 services:
 
   alfresco-community-erecruitment-acs:
-    image: consiglionazionalericerche/alfresco-community-erecruitment:7.0.0
+    image: consiglionazionalericerche/alfresco-community-erecruitment:7.0.1
     ports:
       - 9080:8080
     environment:

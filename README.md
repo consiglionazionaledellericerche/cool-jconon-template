@@ -24,7 +24,7 @@ Per personalizzare i profili legati al bando al [file](src/main/resources/remote
 Per l'avvio in locale occorre una istanza di [Alfresco Community Edition](https://www.alfresco.com/thank-you/thank-you-downloading-alfresco-community-edition) attiva sulla porta 9080, la versione minima è la 5.0.1 Community.  
 
 Successivamente applicare i seguenti amps:
-- https://repo.maven.apache.org/maven2/it/cnr/si/alfresco/groups-extension/2.22/groups-extension-2.22.amp
+- https://repo.maven.apache.org/maven2/it/cnr/si/alfresco/groups-extension/2.22/groups-extension-2.24.amp
 - https://repo.maven.apache.org/maven2/it/cnr/si/alfresco/zip-content/2.22/zip-content-2.22.amp
 - https://repo.maven.apache.org/maven2/it/cnr/si/alfresco/cnr-extension-content-model/2.22/cnr-extension-content-model-2.22.amp
 - https://repo.maven.apache.org/maven2/it/cnr/si/alfresco/java-script-extension/2.23/java-script-extension-2.23.amp
@@ -50,7 +50,7 @@ docker-compose up -d
 git clone https://github.com/consiglionazionaledellericerche/cool-jconon-template.git
 cd cool-jconon-template
 mvn clean install -Pprod
-java -jar target/selezioni-template.war --rrd.path=remote-shared,remote-single-model --oil.url=http://localhost:9081/rest --user.admin.password=admin --server.servlet.context-path=/ --repository.base.url=http://localhost:9080/alfresco/ --spring.profiles.active=dev --spid.enable=true --spid.issuer.entityid=https://miauri.it --spid.destination=http://localhost:8080/spid/send-response --siper.sedi.url=
+java -jar target/selezioni-template.war --rrd.path=remote-shared,remote-single-model --oil.url=http://localhost:9081/rest --user.admin.password=admin --server.servlet.context-path=/ --repository.base.url=http://localhost:9080/alfresco/ --spring.profiles.active=dev --spid.enable=true --spid.issuer.entityId=https://miauri.it --spid.destination=http://localhost:8080/spid/send-response --siper.sedi.url=
 ```
 
 ## Avvio locale
