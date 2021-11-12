@@ -61,10 +61,9 @@
             <id>prod</id>
             <properties>
                 <cool.mode>PRODUCTION</cool.mode>
-                <common.javascript.path>${project.build.directory}/javascript-exploded/META-INF/js/
-                </common.javascript.path>
-                <common.cnr.javascript.path>${project.build.directory}/javascript-exploded/META-INF/js/
-                </common.cnr.javascript.path>
+                <common.javascript.path>${project.build.directory}/javascript-exploded/META-INF/js/</common.javascript.path>
+                <common.cnr.javascript.path>${project.build.directory}/javascript-exploded/META-INF/js/</common.cnr.javascript.path>
+                <logback.appender>FILE</logback.appender>
             </properties>
             <build>
                 <resources>
