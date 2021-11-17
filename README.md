@@ -36,6 +36,7 @@ In alternativa si può rendere disponibile Alfresco tramite [docker-compose](doc
 ```bash
 git clone https://github.com/consiglionazionaledellericerche/cool-jconon-template.git
 cd cool-jconon-template/docker-compose
+mkdir alf_data
 docker-compose up -d
 ```
 
