@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model xmlns="http://www.alfresco.org/model/dictionary/1.0" name="jconon_nuova_dichiarazione:jconon_nuova_dichiarazioneModel">
+    <description>JCONON Nuova Dichiarazione Model</description>
+    <version>1.0</version>
+    <imports>
+        <import uri="http://www.alfresco.org/model/dictionary/1.0" prefix="d"/>
+        <import uri="http://www.alfresco.org/model/content/1.0" prefix="cm"/>
+        <import uri="http://www.cnr.it/model/jconon_application/cmis" prefix="jconon_application" />
+    </imports>
+    <namespaces>
+        <namespace uri="http://www.nuovoente.it/model/jconon_nuova_dichiarazione/cmis" prefix="jconon_nuova_dichiarazione"/>
+    </namespaces>
+    <aspects>
+        <aspect name="jconon_nuova_dichiarazione:aspect_nuova_dichiarazione">
+            <title>Nuova dichiarazione</title>
+            <parent>jconon_application:aspects</parent>
+            <properties>
+                <property name="jconon_nuova_dichiarazione:fl_nuova_dichiarazione">
+                    <title>di aver .........</title>
+                    <type>d:boolean</type>
+                    <mandatory>true</mandatory>
+                </property>
+            </properties>
+        </aspect>
+    </aspects>
+</model>

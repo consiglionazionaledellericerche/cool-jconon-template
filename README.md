@@ -15,6 +15,14 @@ Per cambiare le etichette della pagina iniziale fare riferimento al [file](src/m
 
 Per una nuova tipologia di bando fare riferimento al [file](src/main/resources/remote-single-model/Data%20Dictionary/Models/jconon_nuovo_ente_model.xml)   
 
+## Personalizzazione nuova tipologia di allegato alla domanda
+
+Per una nuova tipologia di allegato alla domanda fare riferimento al [file](src/main/resources/remote-single-model/Data%20Dictionary/Models/jconon_nuovo_allegato_model.xml)
+
+## Personalizzazione nuova dichiarazione alla domanda
+
+Per una nuova dichiarazione alla domanda fare riferimento al [file](src/main/resources/remote-single-model/Data%20Dictionary/Models/jconon_nuova_dichiarazione_model.xml)
+
 ## Personalizzazione profili del bando
 
 Per personalizzare i profili legati al bando al [file](src/main/resources/remote-single-model/Data%20Dictionary/Models/jconon_call_constraint_elenco_profilo_livello.xml)
