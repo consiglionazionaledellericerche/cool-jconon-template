@@ -32,7 +32,7 @@ Per personalizzare i profili legati al bando al [file](src/main/resources/remote
 Per l'avvio in locale occorre una istanza di [Alfresco Community Edition](https://www.alfresco.com/thank-you/thank-you-downloading-alfresco-community-edition) attiva sulla porta 9080, la versione minima è la 5.0.1 Community.  
 
 Successivamente applicare i seguenti amps:
-- https://repo.maven.apache.org/maven2/it/cnr/si/alfresco/groups-extension/2.22/groups-extension-2.24.amp
+- https://repo.maven.apache.org/maven2/it/cnr/si/alfresco/groups-extension/2.24/groups-extension-2.24.amp
 - https://repo.maven.apache.org/maven2/it/cnr/si/alfresco/zip-content/2.22/zip-content-2.22.amp
 - https://repo.maven.apache.org/maven2/it/cnr/si/alfresco/cnr-extension-content-model/2.22/cnr-extension-content-model-2.22.amp
 - https://repo.maven.apache.org/maven2/it/cnr/si/alfresco/java-script-extension/2.23/java-script-extension-2.23.amp
