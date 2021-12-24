@@ -27,6 +27,10 @@ Per una nuova dichiarazione alla domanda fare riferimento al [file](src/main/res
 
 Per personalizzare i profili legati al bando al [file](src/main/resources/remote-single-model/Data%20Dictionary/Models/jconon_call_constraint_elenco_profilo_livello.xml)
 
+## Personalizzazione lista delle sedi
+
+Per attivare la lista delle sedi basta passare il parametro --siper.static.sedi=true in fase di avvio, per modificare la lista basta editare il file sedi.json utilizzando webdav alla seguente URL: dav://admin@localhost:9080/alfresco/webdav/Data Dictionary/Web Applications/jconon/WEB-INF/classes 
+
 ## Requisiti
 
 Per l'avvio in locale occorre una istanza di [Alfresco Community Edition](https://www.alfresco.com/thank-you/thank-you-downloading-alfresco-community-edition) attiva sulla porta 9080, la versione minima è la 5.0.1 Community.  
@@ -59,7 +63,7 @@ docker-compose up -d
 git clone https://github.com/consiglionazionaledellericerche/cool-jconon-template.git
 cd cool-jconon-template
 mvn clean install -Pprod
-java -jar target/selezioni-template.war --rrd.path=remote-shared,remote-single-model --oil.url=http://localhost:9081/rest --user.admin.password=admin --server.servlet.context-path=/ --repository.base.url=http://localhost:9080/alfresco/ --spring.profiles.active=dev --spid.enable=true --spid.issuer.entityId=https://miauri.it --spid.destination=http://localhost:8080/spid/send-response --siper.sedi.url=
+java -jar target/selezioni-template.war --rrd.path=remote-shared,remote-single-model --oil.url=http://localhost:9081/rest --user.admin.password=admin --server.servlet.context-path=/ --repository.base.url=http://localhost:9080/alfresco/ --spring.profiles.active=dev --spid.enable=true --spid.issuer.entityId=https://miauri.it --spid.destination=http://localhost:8080/spid/send-response
 ```
 
 ## Avvio locale
@@ -72,7 +76,7 @@ java -jar target/selezioni-template.war --rrd.path=remote-shared,remote-single-m
 ```bash
 git clone https://github.com/consiglionazionaledellericerche/cool-jconon-template.git
 cd cool-jconon-template
-mvn clean spring-boot:run -Pprod -Dspring.profiles.active=dev -Dserver.servlet.context-path=/ -Duser.admin.password=admin -Drepository.base.url=http://localhost:9080/alfresco/ -Dsiper.sedi.url=
+mvn clean spring-boot:run -Pprod -Dspring.profiles.active=dev -Dserver.servlet.context-path=/ -Duser.admin.password=admin -Drepository.base.url=http://localhost:9080/alfresco/
 ```
 
 L'applicazionre sarà attiva alla seguente URL: <http://localhost:8080>
