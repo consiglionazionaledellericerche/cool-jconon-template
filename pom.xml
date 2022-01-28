@@ -22,7 +22,7 @@
     <parent>
         <groupId>it.cnr.si.cool.jconon</groupId>
         <artifactId>cool-jconon-parent</artifactId>
-        <version>4.10.2</version>
+        <version>4.11.0</version>
     </parent>
 
     <artifactId>cool-jconon-template</artifactId>
@@ -32,7 +32,6 @@
     <properties>
         <cool.mode>development</cool.mode>
         <start-class>it.cnr.si.cool.jconon.CoolJcononApplication</start-class>
-        <hazelcast.version>3.7.2</hazelcast.version>
     </properties>
 
     <packaging>war</packaging>
@@ -42,19 +41,8 @@
             <groupId>it.cnr.si.cool.jconon</groupId>
             <artifactId>cool-jconon-webapp-resources</artifactId>
             <version>${project.parent.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.hazelcast</groupId>
-            <artifactId>hazelcast-spring</artifactId>
-            <version>${hazelcast.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.hazelcast</groupId>
-            <artifactId>hazelcast</artifactId>
-            <version>${hazelcast.version}</version>
-        </dependency>
+    	</dependency>
     </dependencies>
-
     <profiles>
 
         <profile>
