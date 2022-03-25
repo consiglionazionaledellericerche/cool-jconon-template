@@ -22,7 +22,7 @@
     <parent>
         <groupId>it.cnr.si.cool.jconon</groupId>
         <artifactId>cool-jconon-parent</artifactId>
-        <version>4.11.0</version>
+        <version>4.12.2</version>
     </parent>
 
     <artifactId>cool-jconon-template</artifactId>
@@ -41,10 +41,15 @@
             <groupId>it.cnr.si.cool.jconon</groupId>
             <artifactId>cool-jconon-webapp-resources</artifactId>
             <version>${project.parent.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>it.cnr.si.cool.jconon</groupId>
+                    <artifactId>cool-jconon-keycloak</artifactId>
+                </exclusion>
+            </exclusions>
     	</dependency>
     </dependencies>
     <profiles>
-
         <profile>
             <id>prod</id>
             <properties>
