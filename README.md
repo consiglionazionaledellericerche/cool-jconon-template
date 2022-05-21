@@ -53,8 +53,6 @@ arubaRemoteSignService.typeOtpAuth=demoprod
 arubaRemoteSignService.url=https://arss.demo.firma-automatica.it/ArubaSignService/ArubaSignService?wsdl
 ```
 
-
-
 **Per una corretta inizializzazione delle risorse installare Alfresco localizzato in Inglese**
 
 ### Docker Alfresco
