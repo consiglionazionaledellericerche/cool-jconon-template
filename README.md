@@ -41,6 +41,20 @@ Successivamente applicare i seguenti amps:
 - https://repo.maven.apache.org/maven2/it/cnr/si/alfresco/cnr-extension-content-model/2.22/cnr-extension-content-model-2.22.amp
 - https://repo.maven.apache.org/maven2/it/cnr/si/alfresco/java-script-extension/2.23/java-script-extension-2.23.amp
 
+Per utilizzare la firma remota di Aruba installare il seguente amp:
+
+https://repo.maven.apache.org/maven2/it/cnr/si/alfresco/firma/2.24/firma-2.24.amp
+
+Le seguenti variabili vanno specificate in [alfresco-global.properties](docker-compose/alfresco-global.properties) oppure passate al processo java 
+
+```bash
+arubaRemoteSignService.certId=AS0
+arubaRemoteSignService.typeOtpAuth=demoprod
+arubaRemoteSignService.url=https://arss.demo.firma-automatica.it/ArubaSignService/ArubaSignService?wsdl
+```
+
+
+
 **Per una corretta inizializzazione delle risorse installare Alfresco localizzato in Inglese**
 
 ### Docker Alfresco
