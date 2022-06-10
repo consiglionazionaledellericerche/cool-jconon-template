@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  ~    Copyright (C) 2019  Consiglio Nazionale delle Ricerche
+  ~     This program is free software: you can redistribute it and/or modify
+  ~     it under the terms of the GNU Affero General Public License as
+  ~     published by the Free Software Foundation, either version 3 of the
+  ~     License, or (at your option) any later version.
+  ~
+  ~     This program is distributed in the hope that it will be useful,
+  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~     GNU Affero General Public License for more details.
+  ~
+  ~     You should have received a copy of the GNU Affero General Public License
+  ~     along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<!-- Custom Model -->
+
+<!-- Note: This model is pre-configured to load at startup of the Repository.  So, all custom -->
+<!--       types and aspects added here will automatically be registered -->
+
+<model name="cvelement_nuovo_ente:cvelement_nuovo_enteModel" xmlns="http://www.alfresco.org/model/dictionary/1.0">
+
+	<!-- Optional meta-data about the model -->   
+	<description>Nuovo Ente CV Element Model</description>
+	<author>Marco Spasiano</author>
+	<version>1.0</version>
+
+	<imports>
+		<!-- Import Alfresco Dictionary Definitions -->
+		<import uri="http://www.alfresco.org/model/dictionary/1.0" prefix="d"/>
+		<!-- Import Alfresco Content Domain Model Definitions -->
+		<import uri="http://www.alfresco.org/model/content/1.0" prefix="cm"/>
+		<import uri="http://www.cnr.it/model/jconon_attachment/cmis" prefix="jconon_attachment" />
+		<import uri="http://www.cnr.it/model/cvelement/1.0" prefix="cvelement"/>
+	</imports>
+
+	<!-- Introduction of new namespaces defined by this model -->
+	<!-- NOTE: The following namespace custom.model should be changed to reflect your own namespace -->
+	<namespaces>
+    <namespace uri="http://www.nuovoente.it/model/cvelement/cmis" prefix="cvelement_nuovo_ente"/>
+	</namespaces>
+	
+	<!-- TYPES -->      
+	<types>
+	<!-- NEW TYPES -->
+		<type name="cvelement_nuovo_ente:progetto">
+			<title>Nuovo ente Responsabilità di progetto</title>
+			<parent>jconon_attachment:cv_element</parent>
+			<properties>
+			</properties>
+			<mandatory-aspects>
+				<aspect>cvelement:commonSottoSezioneId</aspect>
+				<aspect>cvelement:commonProgetto</aspect>
+				<aspect>cvelement:commonMetadata1</aspect>
+				<aspect>cvelement:commonMetadata2</aspect>
+				<aspect>cvelement:commonMetadata3</aspect>
+				<aspect>cvelement:commonAltreInfo</aspect>
+			</mandatory-aspects>
+		</type>
+	</types>
+</model>
