@@ -210,3 +210,75 @@ sudo loginctl enable-linger $(whoami)
 Da questo momento il demone docker risulterà attivo solo con l’utente `userdocker` e la dir di appoggio è in `/home/userdocker/.local/share/docker/`
 
 Per poter aprire porte sotto la 1024 con user normale in /etc/sysctl.conf: `net.ipv4.ip_unprivileged_port_start=80`
+
+Per gestire la MTU e poter visualizzare e registrare l'ip reale dei client, creare il file `~/.config/systemd/user/docker.service.d/override.conf`:
+```
+[Service]
+Environment="DOCKERD_ROOTLESS_ROOTLESSKIT_MTU=<INTEGER>"
+Environment="DOCKERD_ROOTLESS_ROOTLESSKIT_PORT_DRIVER=slirp4netns"
+```
+e riavviare docker:
+```
+systemctl --user daemon-reload
+systemctl --user restart docker
+```
+
+## METTERE IN MANUTENZIONE JCONON (OPZIONALE)
+
+creare una pagina html custom in `cool-jconon-template/docker-compose/conf.d/`, ad esempio `manutenzione_off.html`:
+```
+<!doctype html>
+<title>Portale in manutenzione tecnica</title>
+<style>
+  body { text-align: center; padding: 150px; }
+  h1 { font-size: 50px; }
+  body { font: 20px Helvetica, sans-serif; color: #333; }
+  article { display: block; text-align: left; width: 650px; margin: 0 auto; }
+  a { color: #dc8100; text-decoration: none; }
+  a:hover { color: #333; text-decoration: none; }
+</style>
+
+<article>
+    <h1>Ci scusiamo per l'interruzione</h1>
+    <div>
+        <p>Ci scusiamo per l'inconveniente, ma al momento stiamo eseguendo alcuni lavori di manutenzione. Se hai bisogno puoi sempre <a href="mailto:#">contattarci</a>,  saremo di nuovo online a breve!</p>
+        <p>&mdash; il Team</p>
+    </div>
+</article>
+
+```
+
+in `cool-jconon-template/docker-compose/conf.d/default.conf` aggiungere una whitelist di IP a cui permettere comunque l'accesso:
+```
+map $remote_addr $internal {
+    default 0;
+    127.0.0.1 1; 
+    192.168.1.123 1; # whitelist ip
+    192.168.1.124 1; # whitelist ip
+}
+```
+dentro la sezione `server {`:
+```
+ 	set $maintenance 0;
+        if (-f /etc/nginx/conf.d/manutenzione_on.html) {
+              set $maintenance 1;
+        }
+
+        if ($internal != 1) {
+              set $maintenance "${maintenance}1";
+        }
+
+        if ($maintenance = 11) {
+              return 503;
+        }
+        error_page 503 @maintenance;
+	
+        location @maintenance {
+           root /etc/nginx/conf.d/;
+           rewrite ^(.*)$ /manutenzione_on.html break;
+        }
+```
+e riavviare il container per applicare il nuovo file di configurazione.
+
+D'ora in poi basterà rinominare `manutenzione_off.html` in `manutenzione_on.html` e nginx lascerà passare solo gli ip autorizzati, mentre a tutti gli altri mostrerà la pagina di manutenzione customizzata.
+*Credits*: https://dev.to/shano/easy-maintenance-mode-with-nginx-2c6g
