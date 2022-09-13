@@ -62,6 +62,8 @@ services:
 
   helpdesk:
     image: consiglionazionalericerche/oil:latest
+    environment:
+      - TZ=Europe/Rome
     ports:
       - 9081:8080
     links:
