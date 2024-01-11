@@ -88,7 +88,7 @@ java -jar target/selezioni-template.war --rrd.path=remote-shared,remote-single-m
 ```bash
 git clone https://github.com/consiglionazionaledellericerche/cool-jconon-template.git
 cd cool-jconon-template
-mvn clean spring-boot:run -Pprod -Dspring.profiles.active=dev -Dserver.servlet.context-path=/ -Duser.admin.password=admin -Drepository.base.url=http://localhost:9080/alfresco/
+mvn clean spring-boot:run -Pprod -D"spring-boot.run.jvmArguments=-Dspring.profiles.active=dev -Dserver.servlet.context-path=/ -Duser.admin.password=admin -Drepository.base.url=http://localhost:9080/alfresco/"
 ```
 
 L'applicazionre sarà attiva alla seguente URL: <http://localhost:8080>
