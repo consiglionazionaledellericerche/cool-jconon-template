@@ -78,7 +78,7 @@ mvn clean install -Pprod
 java -jar target/selezioni-template.war --rrd.path=remote-shared,remote-single-model --oil.url=http://localhost:9081/rest --user.admin.password=admin --server.servlet.context-path=/ --repository.base.url=http://localhost:9080/alfresco/ --spring.profiles.active=dev --spid.enable=true --spid.issuer.entityId=https://miauri.it --spid.destination=http://localhost:8080/spid/send-response
 ```
 
-## Avvio locale
+## Avvio locale - Debug Mode
 ### Prerequisiti
 - Installazione di Apache Maven versione 3
 - Git
@@ -88,8 +88,8 @@ java -jar target/selezioni-template.war --rrd.path=remote-shared,remote-single-m
 ```bash
 git clone https://github.com/consiglionazionaledellericerche/cool-jconon-template.git
 cd cool-jconon-template
-mvn clean spring-boot:run -Pprod -D"spring-boot.run.jvmArguments=-Dspring.profiles.active=dev -Dserver.servlet.context-path=/ -Duser.admin.password=admin -Drepository.base.url=http://localhost:9080/alfresco/"
+mvn clean spring-boot:run -Pprod -Dspring-boot.run.jvmArguments="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8787 -Dspring.profiles.active=dev -Dserver.servlet.context-path=/ -Duser.admin.password=admin -Drepository.base.url=http://localhost:9080/alfresco/"
 ```
 
-L'applicazionre sarà attiva alla seguente URL: <http://localhost:8080>
+L'applicazione sarà attiva alla seguente URL: <http://localhost:8080> e in **Debug** sulla porta **8787**
 
